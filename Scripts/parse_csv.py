@@ -2,13 +2,18 @@
 import csv
 import pandas as pd
 import psycopg2
+import dotenv
+import os
+
+dotenv.load_dotenv()
+
 
 conn = psycopg2.connect(
-    dbname="your_dbname",
-    user="your_username",
-    password="your_password",
-    host="your_host",
-    port="your_port"
+    dbname= os.getenv("DB_NAME"),
+    user= os.getenv("DB_USER"),
+    password= os.getenv("DB_PASSWORD"),
+    host= os.getenv("DB_HOST"),
+    port= os.getenv("DB_PORT")
 
 )
 
